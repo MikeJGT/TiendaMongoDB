@@ -1,0 +1,66 @@
+@host = http://localhost:3000
+
+@apiProducts = /api/products
+
+@apiUsers = /api/users
+
+@productos = {{host}}{{apiProducts}}
+
+@users = {{host}}{{apiUsers}}
+
+
+###
+GET {{users}}/cart
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQyYmZhNTE2MDBjMTk2YWYwYWZjZmFlIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgxMTMzMDk1LCJpYXQiOjE2ODA3MDEwOTV9.iVnBW-0oHknTtSB9HBBYXhf9FjDrrDzjhs5KDdC5Gow
+
+###
+GET {{users}}/buy/642adb237a43b84ad126a8d6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQyYmZhNTE2MDBjMTk2YWYwYWZjZmFlIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgxMTMzMDk1LCJpYXQiOjE2ODA3MDEwOTV9.iVnBW-0oHknTtSB9HBBYXhf9FjDrrDzjhs5KDdC5Gow
+
+###
+POST {{users}}/login
+Content-Type: application/json
+
+{
+    "email": "admin@mail.com",
+    "password": "12345"
+}
+
+###
+POST {{users}}/register
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "email": "admin@mail.com",
+    "password": "12345",
+    "role": "user",
+    "active": true
+}
+
+
+#########################
+###
+GET {{productos}}/642adb237a43b84ad126a8d6
+
+###
+GET {{productos}}/price/0
+
+###
+GET {{productos}}/departamento/carniceria
+
+###
+POST {{productos}}
+Content-Type: application/json
+
+{
+    "name":"Aguacate2",
+    "description":"Importacion",
+    "price":1.99,
+    "department":"Fruteria",
+    "available":true,
+    "stock":61
+}
+
+###
+PUT {{productos}}/stock
